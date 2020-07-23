@@ -1,6 +1,10 @@
 body{
     padding: 100px;
 }
+#login-area{
+    max-width: 70%;
+    margin: 0 auto;
+}
 .bank-title{
     text-align: center;
     font-weight: bold;
@@ -9,8 +13,9 @@ body{
 .submit-area{
     margin-top: 50px;
     border-radius: 10px;
-    box-shadow: 5px 5px 12px gray;
+    box-shadow: 0px 30px 66px rgba(0, 0, 0, 0.144422);
     padding: 40px;
+    background: white;
 }
 #transaction{
     display: none;
@@ -24,9 +29,16 @@ body{
     padding: 20px;
     border-radius: 10px;
 }
+.status h2{
+    font-weight: bold;
+    font-size: 40px;
+}
 .withdraw{
     background-color: lightsalmon;
 }
 .balance{
     background-color: orange;
+}
+.form-control{
+    max-width: 60%;
 }
