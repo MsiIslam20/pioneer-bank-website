@@ -12,32 +12,51 @@
         depositBtn.addEventListener("click", function(){
 
             const depositNumber = getInputNumber("depositAmount")
-
-            updateSpanCode("currentDeposit", depositNumber)
-            updateSpanCode("current-balance", depositNumber)
-
             document.getElementById("depositAmount").value ="";
+            
+            
+            updateSpanCode("currentDeposit", depositNumber)
+            updateSpanCode("current-balance", 1 * depositNumber)
+
 
         })
 
         //Withdraw Button event handler
         const withdrawBtn = document.getElementById("withdraw")
         withdrawBtn.addEventListener("click", function(){
+
             const withdrawNumber = getInputNumber("withdrawAmount");
-
+            const current_Balance = parseFloat(document.getElementById("current-balance").innerText);
+            
             document.getElementById("withdrawAmount").value ="";
+            if(withdrawNumber <= current_Balance){
+                updateSpanCode("currentWithdraw" , withdrawNumber)
+                updateSpanCode("current-balance" , -1 * withdrawNumber)
+            }else{
+                alert("You Do Not Have Sufficient Balance!!!")
+            }
 
-            updateSpanCode("currentWithdraw" , withdrawNumber)
-            updateSpanCode("current-balance" , -1 * withdrawNumber)
         })
 
         function getInputNumber(id){
             const Amount = document.getElementById(id).value;
-            const amountNumber = parseFloat(Amount);
-            return amountNumber
+            if(Amount !== ""){
+                const amountNumber = parseFloat(Amount);
+            
+                if(amountNumber > 0 && amountNumber != ""){
+                    return amountNumber
+                } else{
+                    alert("Empty Value or Negative Value is not a Valid Type")
+                    return amountNumber * 0
+                }
+            } else{
+                alert("Please Provide a value")
+                return 00
+            }
         }
 
         function updateSpanCode(id, addNumber) {
+
                 const current = document.getElementById(id).innerText;
                 const currentNumber = parseFloat(current);
                 const totalAmount = addNumber + currentNumber;
