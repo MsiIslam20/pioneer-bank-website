@@ -38,6 +38,7 @@
 
         })
 
+        //Input Number handler
         function getInputNumber(id){
             const Amount = document.getElementById(id).value;
             if(Amount !== ""){
